@@ -11,4 +11,9 @@ public class Program1
     {
         System.out.println(" Hi");
     }
+    public int junk(int x)
+    {
+        System.out.println("hello Git");
+        return x;
+    }
 }
