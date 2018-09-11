@@ -43,7 +43,7 @@ public class parkit
                      
                     }
                  driveway.pop();
-                 while(street.empty()==true)
+                 while(street.empty()!=true)
                 {driveway.push(street.pop());
                   System.out.println("Driveway: "+driveway);
                   System.out.println("Street: "+street);
