@@ -22,7 +22,7 @@ public class word
              String word= in.next();
              if(word.contains(".")||word.contains(","))
                 {
-                    word=word.substring(word.length()-1);
+                    word=word.substring(0,word.length()-1);
                 }
              words.add(word.toLowerCase());
              count++;
