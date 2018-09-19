@@ -5,16 +5,22 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class numObj
+public class pair
 {
     int row;
     int column;
-    int value;
-    public void setVals(int row, int column, int value)
+    
+    public pair(int row, int column)
     {
         this.row=row;
         this.column= column;
-        this.value=value;
+        
     }
-    public int
+    public int getRow()
+    {return row;
+    }
+    public int getColumn()
+    {return column;
+    }
+       
 }

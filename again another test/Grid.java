@@ -4,82 +4,117 @@ public class Grid
    private static final int SIZE = 10;
    int[][] pixels = new int[SIZE][SIZE];
    int count=1;
-   Stack<Integer> numbers = new Stack<>();
+   Stack<pair> numbers = new Stack<>();
 
    /**
       Flood fill, starting with the given row and column.
    */
-   public void floodfill(int row, int column)
+   public void floodfill(int row1, int column2)
    {
+       int row=row1;
+       int column=column2;
        int x=1;
+       int counter=0;
+       
+       pair fair= new pair(row,column);
        boolean complete= false;
+       numbers.add(fair); 
+       setPixel(row,column,x);
+       x++;
        while(complete==false)
        {
-           numbers.add(x);
-           setPixel(row,column,numbers.pop());
-           x++;
            
            
+           if(checkNorth(row,column,x)!=0)
+           {numbers.add(new pair(fair.getRow()-1,fair.getColumn()));
+            x++;
+            }
+            if(checkEast(row,column,x)!=0)
+           {numbers.add(new pair(fair.getRow()-1,fair.getColumn()));
+            x++;
+            }
+            if(checkSouth(row,column,x)!=0)
+           {numbers.add(new pair(fair.getRow()-1,fair.getColumn()));
+            x++;
+            }if(checkWest(row,column,x)!=0)
+           {numbers.add(new pair(fair.getRow()-1,fair.getColumn()));
+            x++;
+            }
+            fair=numbers.pop();
+            row= fair.getRow();
+            column= fair.getColumn();
+            
+          
+           if(counter==1)
+           {
+               complete= true;
+            }
+           
+            counter++;
            
            
            
         }
        
    }
-   public void checkNorth(int row, int column,int num)
+   public int checkNorth(int row, int column,int num)
    {
        if(row>=1)
         {row--;}
        else
-        { return;}
+        { return 0;}
        
        if(pixels[row][column]>0)
-       { return;
+       { return 0;
         }
        else
-       { pixels[row][column]=
+       { pixels[row][column]=num;
+         return 1;
         }
     }
-     public boolean checkSouth(int row, int column,int num)
+     public int checkSouth(int row, int column,int num)
    {
-       if(row<=9)
+       if(row<=8)
         {row++;}
        else
-        { return true;}
+        { return 0;}
        
        if(pixels[row][column]>0)
-       { return true;
+       { return 0;
         }
        else
-       { return false;
+       { pixels[row][column]=num;
+           return 1;
         }
     }
-    public boolean checkEast(int row, int column,int num)
+    public int checkEast(int row, int column,int num)
    {
-       if(column<=9)
+       if(column<=8)
         {column++;}
        else
-        { return true;}
+        { return 0;}
        
        if(pixels[row][column]>0)
-       { return true;
+       { return 0;
         }
        else
-       { return false;
+       { pixels[row][column]=num;
+           return 1;
         }
     }
-    public boolean checkWest(int row, int column,int num)
+    public int checkWest(int row, int column,int num)
    {
        if(column>=1)
         {column--;}
        else
-        { return true;}
+        { return 0;}
        
        if(pixels[row][column]>0)
-       { return true;
+       { return 0;
         }
        else
-       { return false;
+       { pixels[row][column]=num;
+           return 1;
         }
     }
    public void setPixel(int row, int column,int value)
