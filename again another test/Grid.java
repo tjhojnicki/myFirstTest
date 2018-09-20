@@ -30,27 +30,27 @@ public class Grid
             x++;
             }
             if(checkEast(row,column,x)!=0)
-           {numbers.add(new pair(fair.getRow()-1,fair.getColumn()));
+           {numbers.add(new pair(fair.getRow(),fair.getColumn()+1));
             x++;
             }
             if(checkSouth(row,column,x)!=0)
-           {numbers.add(new pair(fair.getRow()-1,fair.getColumn()));
+           {numbers.add(new pair(fair.getRow()+11,fair.getColumn()));
             x++;
             }if(checkWest(row,column,x)!=0)
-           {numbers.add(new pair(fair.getRow()-1,fair.getColumn()));
+           {numbers.add(new pair(fair.getRow(),fair.getColumn()-1));
             x++;
             }
             fair=numbers.pop();
             row= fair.getRow();
             column= fair.getColumn();
             
-          
-           if(counter==1)
+           
+           if(counter==4)
            {
                complete= true;
             }
-           
-            counter++;
+           counter++;
+            
            
            
            
