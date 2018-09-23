@@ -34,7 +34,7 @@ public class Grid
             x++;
             }
             if(checkSouth(row,column,x)!=0)
-           {numbers.add(new pair(fair.getRow()+11,fair.getColumn()));
+           {numbers.add(new pair(fair.getRow()+1,fair.getColumn()));
             x++;
             }if(checkWest(row,column,x)!=0)
            {numbers.add(new pair(fair.getRow(),fair.getColumn()-1));
@@ -45,7 +45,7 @@ public class Grid
             column= fair.getColumn();
             
            
-           if(counter==4)
+           if(x==100)
            {
                complete= true;
             }
@@ -57,18 +57,18 @@ public class Grid
         }
        
    }
-   public int checkNorth(int row, int column,int num)
+   public int checkNorth(int val, int column,int num)
    {
-       if(row>=1)
-        {row--;}
+       if(val>=1)
+        {val--;}
        else
         { return 0;}
        
-       if(pixels[row][column]>0)
+       if(pixels[val][column]>0)
        { return 0;
         }
        else
-       { pixels[row][column]=num;
+       { pixels[val][column]=num;
          return 1;
         }
     }
